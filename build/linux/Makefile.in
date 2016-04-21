@@ -259,7 +259,7 @@ endif
 
 ifeq ($(octave),yes)
 %.mex: %.o $(MATLAB_CXX_OBJECTS) libastra.la
-	mkoctfile -mex $(MEXFLAGS) $(LIBS) -L.libs -lastra --output $* $*.o $(MATLAB_CXX_OBJECTS)
+	mkoctfile -mex LDFLAGS=$(LDFLAGS) $(MEXFLAGS) $(LIBS) -L.libs -lastra --output $* $*.o $(MATLAB_CXX_OBJECTS)
 endif
 
 ifeq ($(python),yes)
